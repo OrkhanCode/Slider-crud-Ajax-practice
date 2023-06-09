@@ -1,0 +1,13 @@
+﻿@model SliderDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container">
+    <h4 class="my-3">Slider Info</h4>
+
+    <img src="~/img/@Model.Image" style="height:300px; width:500px" />
+    <p>Created Date: @Model.CreateDate</p>
+    <p>Status: @Model.Status</p>
+</div>

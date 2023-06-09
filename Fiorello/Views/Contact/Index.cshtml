@@ -1,0 +1,12 @@
+﻿@model ContactVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section id="experts">
+    <div class="container">
+        <h1 class="my-3">Contact Page</h1>
+
+        <partial name="_ExpertsPartial" model="@Model.Experts"/>
+    </div>
+</section>

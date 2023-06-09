@@ -1,0 +1,26 @@
+﻿@model SliderInfoEditVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container my-4">
+    <h1 class="text-center my-3">Edit Slider Info</h1>
+
+    <img src="~/img/@Model.SignImage" class="mb-3" style="width:150px; height:50px"/>
+
+    <form method="post" asp-action="Edit" class="my-3" enctype="multipart/form-data">
+
+        <input asp-for=Title class="form-control my-3" placeholder="Enter title" />
+        <span class="text-danger d-block" asp-validation-for="Title"></span>
+
+        <input asp-for=Description class="form-control my-3" placeholder="Enter description" />
+        <span class="text-danger d-block" asp-validation-for="Description"></span>
+
+        <input asp-for=NewSignImage class="form-control my-3" />
+        <span class="text-danger d-block" asp-validation-for="NewSignImage"></span>
+
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
+        <a class="btn btn-primary mt-3" asp-action="Index">Back</a>
+    </form>
+</div>

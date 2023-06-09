@@ -1,0 +1,43 @@
+﻿@model List<SliderVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container my-5">
+    <h1 class="text-center">Sliders</h1>
+    <a asp-action="Create" class="btn btn-success my-4">Create</a>
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Basic Table</h6>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Create Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var item in Model)
+                {
+                    <tr>
+                        <th><img src="~/img/@item.Image" style="width:100px;height:75px"></th>
+                        <td>@item.CreateDate.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <div class="status-slider @(item.Status ? "status-true":"status-false")" data-id="@item.Id"></div>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <form method="post" asp-action="Delete" asp-route-id="@item.Id" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
